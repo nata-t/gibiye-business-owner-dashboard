@@ -1,0 +1,24 @@
+{
+    "data": [
+        { "name": "Addis Ababa", "max": "7634", "rtp": "92", "sequence": "option1" },
+        { "name": "Adama", "max": "6758", "rtp": "81", "sequence": "option3" },
+        { "name": "Hawassa", "max": "8247", "rtp": "67", "sequence": "option2" },
+        { "name": "Dire Dawa", "max": "6932", "rtp": "89", "sequence": "option3" },
+        { "name": "Mekelle", "max": "5771", "rtp": "73", "sequence": "option1" },
+        { "name": "Bahir Dar", "max": "8224", "rtp": "78", "sequence": "option2" },
+        { "name": "Jimma", "max": "6295", "rtp": "85", "sequence": "option3" },
+        { "name": "Axum", "max": "7384", "rtp": "70", "sequence": "option1" },
+        { "name": "Lalibela", "max": "5847", "rtp": "94", "sequence": "option2" },
+        { "name": "Gondar", "max": "7532", "rtp": "79", "sequence": "option3" },
+        { "name": "Debre Tabor", "max": "6921", "rtp": "88", "sequence": "option1" },
+        { "name": "Woldia", "max": "6218", "rtp": "76", "sequence": "option2" },
+        { "name": "Harar", "max": "8901", "rtp": "82", "sequence": "option3" },
+        { "name": "Jijiga", "max": "7254", "rtp": "71", "sequence": "option1" },
+        { "name": "Nekemte", "max": "5992", "rtp": "90", "sequence": "option2" },
+        { "name": "Gedeo", "max": "7623", "rtp": "83", "sequence": "option3" },
+        { "name": "Wondo Genet", "max": "6784", "rtp": "69", "sequence": "option1" },
+        { "name": "Hosanna", "max": "7112", "rtp": "75", "sequence": "option2" },
+        { "name": "Asela", "max": "6247", "rtp": "91", "sequence": "option3" },
+        { "name": "Shashamane", "max": "5598", "rtp": "87", "sequence": "option1" }
+    ]
+}

@@ -1,0 +1,155 @@
+{
+    "alpha_1": [
+        {
+            "id": 1,
+            "class": "closed",
+            "userName": "coin-bet",
+            "lastSeen": "2d",
+            "messages": [
+                {
+                    "createdAt": 1702975760821,
+                    "owner": "company",
+                    "text": "nati endet endet neh"
+                },
+                {
+                    "createdAt": 1702975801931,
+                    "owner": "company",
+                    "text": "print eyesera adelem"
+                },
+                {
+                    "createdAt": 1702975838818,
+                    "owner": "shop",
+                    "text": "ere mnden new emtlew"
+                }
+            ],
+            "name": "coin bet",
+            "status": "active"
+        },
+        {
+            "id": 2,
+            "class": "open",
+            "userName": "dev-bet",
+            "lastSeen": "2d",
+            "messages": [
+                {
+                    "createdAt": 1702975989245,
+                    "owner": "shop",
+                    "text": "hi natata tata tata"
+                },
+                {
+                    "createdAt": 1702976060289,
+                    "owner": "shop",
+                    "text": "ere tew tew tew"
+                },
+                {
+                    "createdAt": 1702976067145,
+                    "owner": "shop",
+                    "text": "ende koy mnden new"
+                },
+                {
+                    "createdAt": 1702979053384,
+                    "owner": "shop",
+                    "text": "ere tew tew tew"
+                }
+            ],
+            "name": "dev bet",
+            "status": "active"
+        }
+    ],
+    "alpha_2": [
+        {
+            "id": 1,
+            "class": "open",
+            "userName": "beta-bet",
+            "lastSeen": "2d",
+            "messages": [
+                {
+                    "createdAt": 1652646338240,
+                    "owner": "company",
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                },
+                {
+                    "createdAt": 1652646368718,
+                    "owner": "company",
+                    "text": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                },
+                {
+                    "createdAt": 1652646368718,
+                    "owner": "shop",
+                    "text": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                }
+            ],
+            "name": "coin bet",
+            "status": "active"
+        },
+        {
+            "id": 2,
+            "class": "closed",
+            "userName": "omega-bet",
+            "lastSeen": "2d",
+            "messages": [
+                {
+                    "createdAt": 1652646338240,
+                    "owner": "company",
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                },
+                {
+                    "createdAt": 1652646368718,
+                    "owner": "company",
+                    "text": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                },
+                {
+                    "createdAt": 1652646368718,
+                    "owner": "shop",
+                    "text": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                }
+            ],
+            "name": "coin bet",
+            "status": "active"
+        }
+    ],
+    "info": {
+        "alpha_1": {
+            "lastChat": "ere mnden new emtlew",
+            "lastSeen": 1702975760821,
+            "name": "alpha virtual",
+            "status": "active",
+            "type": "company"
+        },
+        "alpha_2": {
+            "lastChat": "mnden new zmtaw",
+            "lastSeen": 1702975760821,
+            "name": "alpha virtual 2",
+            "status": "active",
+            "type": "company"
+        },
+        "beta-bet": {
+            "lastChat": "wanaw wanaw",
+            "lastSeen": 1702975760821,
+            "name": "beta bet",
+            "status": "active",
+            "type": "shop"
+        },
+        "coin-bet": {
+            "lastChat": "asheweynaye hoo asheweynaye",
+            "lastSeen": 1702975760821,
+            "name": "coin bet",
+            "status": "deactive",
+            "type": "shop"
+        },
+        "dev-bet": {
+            "lastChat": "slemalteta sle malsekr betztash menemekugn",
+            "lastSeen": 1702975760821,
+            "name": "dev bet",
+            "status": "active",
+            "type": "shop"
+        },
+        "omega-bet": {
+            "lastChat": "hulet hono kelil new mengedu",
+            "lastSeen": 1702975760821,
+            "name": "omega  bet",
+            "status": "active",
+            "type": "shop"
+        }
+    }
+}

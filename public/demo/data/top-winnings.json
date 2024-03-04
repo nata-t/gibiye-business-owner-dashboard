@@ -1,0 +1,98 @@
+{
+    "columns": [
+        {
+            "field": "shop",
+            "header": "Shop"
+        },
+        {
+            "field": "ticket",
+            "header": "Ticket No"
+        },
+        {
+            "field": "stake",
+            "header": "Stake"
+        },
+        {
+            "field": "winning",
+            "header": "Winning Amount"
+        },
+        {
+            "field": "status",
+            "header": "Status"
+        }
+    ],
+    "data": [
+        {
+            "id": "1000",
+            "stake": 100,
+            "winning": 2300,
+            "shop": "mekanisa",
+            "ticket": 1233463788,
+            "status": "paid",
+            "expansion": {
+                "Magent": "John Doe",
+                "name": "Sarah Adams0",
+                "address": "Addis Ababa0",
+                "mobile": "09094433330",
+                "share": "70%0",
+                "role": "agent",
+                "oddType": "kiron",
+                "rtp": "120"
+            }
+        },
+        {
+            "id": "1001",
+            "stake": 10,
+            "winning": 230,
+            "shop": "mekanisa1",
+            "ticket": 1233463788,
+            "status": "paid",
+            "expansion": {
+                "Magent": "David Lee",
+                "name": "Sarah Adams1",
+                "address": "Addis Ababa1",
+                "mobile": "09094433331",
+                "share": "70%1",
+                "role": "agent",
+                "oddType": "kiron",
+                "rtp": "121"
+            }
+        },
+        {
+            "id": "1002",
+            "stake": 100,
+            "winning": 2300,
+            "shop": "mekanisa3",
+            "ticket": 1233463788,
+            "status": "paid",
+            "expansion": {
+                "Magent": "Michael Wilson",
+                "name": "Sarah Adams2",
+                "address": "Addis Ababa2",
+                "mobile": "09094433332",
+                "share": "70%2",
+                "role": "agent",
+                "oddType": "kiron",
+                "rtp": "122"
+            }
+        },
+        {
+            "id": "1003",
+            "stake": 100,
+            "winning": 2300,
+            "shop": "mekanisa4",
+            "ticket": 1233463788,
+            "status": "paid",
+            "expansion": {
+                "Magent": "Laura King",
+                "name": "Sarah Adams3",
+                "address": "Addis Ababa3",
+                "mobile": "09094433333",
+                "share": "70%3",
+                "role": "agent",
+                "oddType": "kiron",
+                "rtp": "123"
+            }
+        }
+    ]
+}
