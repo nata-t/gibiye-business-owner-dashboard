@@ -1,6 +1,143 @@
 <script setup>
-import { ref } from 'vue';
+import { onBeforeMount, ref } from 'vue';
 import AppMenuItem from './AppMenuItem.vue';
+import Cookies from 'js-cookie';
+
+const businessModel = ref();
+onBeforeMount(async () => {
+    const loggedBusiness = await Cookies.get('loggedUser');
+    if (loggedBusiness) {
+        const business = JSON.parse(loggedBusiness);
+        businessModel.value = business.businessModel;
+    }
+});
+
+const serviceItems_1 = ref({
+    label: 'Service Management',
+    icon: 'pi pi-database',
+    items: [
+        {
+            label: 'Service',
+            icon: 'pi pi-fw pi-shopping-bag',
+            to: '/service-management/service'
+        },
+        {
+            label: 'New',
+            icon: 'pi pi-fw pi-plus',
+            to: '/service-management/new'
+        }
+    ]
+});
+const serviceItems_2 = ref({
+    label: 'Scheduling',
+    icon: 'pi pi-database',
+    items: [
+        {
+            label: 'Appointment',
+            icon: 'pi pi-fw pi-calendar-plus',
+            to: '/scheduling/appointment'
+        },
+        {
+            label: 'Calendar View',
+            icon: 'pi pi-fw pi-desktop',
+            to: '/scheduling/calendar'
+        }
+    ]
+});
+
+const stockItems_1 = ref({
+    label: 'Stock Management',
+    icon: 'pi pi-database',
+    items: [
+        {
+            label: 'Stock',
+            icon: 'pi pi-fw pi-file-excel',
+            to: '/pages/empty'
+        },
+        {
+            label: 'New',
+            icon: 'pi pi-fw pi-slack',
+            to: '/pages/empty'
+        }
+    ]
+});
+
+const stockItems_2 = ref({
+    label: 'Purchasings',
+    icon: 'pi pi-database',
+    items: [
+        {
+            label: 'Delivery Scheduling',
+            icon: 'pi pi-fw pi-file-excel',
+            to: '/pages/empty'
+        },
+        {
+            label: 'schedule View',
+            icon: 'pi pi-fw pi-slack',
+            to: '/game/results'
+        }
+    ]
+});
+
+const menuItems_1 = ref({
+    label: 'Menu Management',
+    icon: 'pi pi-database',
+    items: [
+        {
+            label: 'menu',
+            icon: 'pi pi-fw pi-file-excel',
+            to: '/pages/empty'
+        },
+        {
+            label: 'New',
+            icon: 'pi pi-fw pi-slack',
+            to: '/game/results'
+        }
+    ]
+});
+
+const menuItems_2 = ref({
+    label: 'Orders',
+    icon: 'pi pi-database',
+    items: [
+        {
+            label: 'Queue',
+            icon: 'pi pi-fw pi-file-excel',
+            to: '/pages/empty'
+        },
+        {
+            label: 'View',
+            icon: 'pi pi-fw pi-slack',
+            to: '/game/results'
+        }
+    ]
+});
+
+const getSidebarItems_1 = () => {
+    switch (businessModel.value) {
+        case 'SERVICE':
+            return serviceItems_1.value;
+        case 'STOCK':
+            return stockItems_1.value;
+        case 'MENU':
+            return menuItems_1.value;
+        default:
+            return serviceItems_1.value;
+    }
+};
+
+const getSidebarItems_2 = () => {
+    switch (businessModel.value) {
+        case 'SERVICE':
+            return serviceItems_2.value;
+        case 'STOCK':
+            return stockItems_2.value;
+        case 'MENU':
+            return menuItems_2.value;
+        default:
+            return serviceItems_2.value;
+    }
+};
 
 const model = ref([
     {
@@ -8,619 +145,53 @@ const model = ref([
         icon: 'pi pi-chart-line',
         items: [
             {
-                label: 'Todays Analysis',
+                label: 'Analysis',
                 icon: 'pi pi-fw pi-chart-bar',
-                to: '/analysis'
+                to: '/'
             }
         ]
     },
+    getSidebarItems_1(),
+    getSidebarItems_2(),
     {
-        label: 'Data Reports',
-        icon: 'pi pi-database',
-        items: [
-            {
-                label: 'Tickets',
-                icon: 'pi pi-fw pi-file-excel',
-                to: '/tickets'
-            },
-            {
-                label: 'Game Result',
-                icon: 'pi pi-fw pi-slack',
-                to: '/game/results'
-            }
-        ]
-    },
-    {
-        label: 'Cash Reports',
-        icon: 'pi pi-wallet',
-        items: [
-            {
-                label: 'Cashier Report',
-                icon: 'pi pi-fw pi-wallet',
-                to: '/report/cashier-report'
-            },
-            {
-                label: 'Shop/Agent Reports',
-                icon: 'pi pi-fw pi-building',
-                to: '/report/shop-report'
-            },
-            {
-                label: 'Admin Report',
-                icon: 'pi pi-fw pi-user-plus',
-                to: '/report/admin-report'
-            },
-            {
-                label: 'Region Reports',
-                icon: 'pi pi-fw pi-map-marker',
-                to: '/report/region-report'
-            },
-            {
-                label: 'Master Agent Report',
-                icon: 'pi pi-fw pi-box',
-                to: '/report/masterAgent-report'
-            }
-        ]
-    },
-    {
-        label: 'User Accounts',
+        label: 'Profile Management',
         icon: 'pi pi-users',
         items: [
             {
-                label: 'Cashier',
-                icon: 'pi pi-fw pi-user',
-                to: '/user-accounts/cashier'
-            },
-            {
-                label: 'Shops/Agent',
-                icon: 'pi pi-fw pi-building',
-                to: '/user-accounts/shops'
-            },
-            {
-                label: 'Admins',
-                icon: 'pi pi-fw pi-user-plus',
-                to: '/user-accounts/Admins'
-            },
-            {
-                label: 'Regions',
-                icon: 'pi pi-fw pi-map',
-                to: '/pages/empty'
-            },
-            {
-                label: 'Sub Companies',
-                icon: 'pi pi-fw pi-box',
-                to: '/pages/empty'
-            },
-            {
-                label: 'New Shop',
-                icon: 'pi pi-fw pi-plus',
-                to: '/user-accounts/new-shop'
-            }
-        ]
-    },
-    {
-        label: 'System',
-        icon: 'pi pi-cog',
-        items: [
-            {
-                label: 'RTP',
-                icon: 'pi pi-fw pi-sliders-h',
-                to: '/system/RTP'
-            },
-            {
-                label: 'Odds',
-                icon: 'pi pi-fw pi-slack',
-                items: [
-                    {
-                        label: 'Active Odds',
-                        icon: 'pi pi-fw pi-check-square',
-                        to: '/system/odds/active-odds'
-                    },
-                    {
-                        label: 'New Odds',
-                        icon: 'pi pi-fw pi-plus-circle',
-                        to: '/pages/empty'
-                    },
-                    {
-                        label: 'Shop Odds',
-                        icon: 'pi pi-fw pi-building',
-                        to: '/system/odds/shop-odds'
-                    }
-                ]
-            },
-            {
-                label: 'Configration',
-                icon: 'pi pi-fw pi-sliders-v',
-                to: '/pages/empty'
-            },
-            {
-                label: 'Down',
-                icon: 'pi pi-fw pi-sort-amount-down',
-                to: '/pages/empty'
-            },
-            {
-                label: 'Payment Integration',
-                icon: 'pi pi-fw pi-money-bill',
-                to: '/pages/empty'
-            },
-            {
-                label: 'Sub Companies',
-                icon: 'pi pi-fw pi-box',
-                to: '/pages/empty'
-            }
-        ]
-    },
-    {
-        label: 'Jackpot',
-        icon: 'pi pi-gift',
-        items: [
-            {
-                label: 'Active Jackpot',
-                icon: 'pi pi-fw pi-star',
-                to: '/jackpot/active-jackpot'
-            },
-            {
-                label: 'New Jackpot',
-                icon: 'pi pi-fw pi-star-fill',
-                to: '/jackpot/new-jackpot'
-            }
-        ]
-    },
-    {
-        label: 'Games',
-        icon: 'pi pi-th-large'
-    },
-    {
-        label: 'Dashboards',
-        icon: 'pi pi-home',
-        items: [
-            {
-                label: 'E-Commerce',
-                icon: 'pi pi-fw pi-home',
-                to: '/'
-            },
-            {
-                label: 'Banking',
-                icon: 'pi pi-fw pi-image',
-                to: '/dashboard-banking'
-            }
-        ]
-    },
-    {
-        label: 'Apps',
-        icon: 'pi pi-th-large',
-        items: [
-            {
-                label: 'Blog',
-                icon: 'pi pi-fw pi-comment',
-                items: [
-                    {
-                        label: 'List',
-                        icon: 'pi pi-fw pi-image',
-                        to: '/apps/blog/list'
-                    },
-                    {
-                        label: 'Detail',
-                        icon: 'pi pi-fw pi-list',
-                        to: '/apps/blog/detail'
-                    },
-                    {
-                        label: 'Edit',
-                        icon: 'pi pi-fw pi-pencil',
-                        to: '/apps/blog/edit'
-                    }
-                ]
-            },
-            {
-                label: 'Calendar',
-                icon: 'pi pi-fw pi-calendar',
-                to: '/apps/calendar'
-            },
-            {
-                label: 'Chat',
+                label: 'Post And Comment',
                 icon: 'pi pi-fw pi-comments',
-                to: '/apps/chat'
+                to: '/profile-management/posts-comments'
             },
             {
-                label: 'Files',
-                icon: 'pi pi-fw pi-folder',
-                to: '/apps/files'
+                label: 'compose',
+                icon: 'pi pi-fw pi-plus',
+                to: '/profile-management/compose'
             },
             {
-                label: 'Mail',
-                icon: 'pi pi-fw pi-envelope',
-                items: [
-                    {
-                        label: 'Inbox',
-                        icon: 'pi pi-fw pi-inbox',
-                        to: '/apps/mail/inbox'
-                    },
-                    {
-                        label: 'Compose',
-                        icon: 'pi pi-fw pi-pencil',
-                        to: '/apps/mail/compose'
-                    },
-                    {
-                        label: 'Detail',
-                        icon: 'pi pi-fw pi-comment',
-                        to: '/apps/mail/detail/1000'
-                    }
-                ]
-            },
-            {
-                label: 'Task List',
-                icon: 'pi pi-fw pi-check-square',
-                to: '/apps/tasklist'
+                label: 'Edit Profile',
+                icon: 'pi pi-fw pi-user-edit',
+                to: '/pages/empty'
             }
         ]
     },
     {
-        label: 'UI Kit',
-        icon: 'pi pi-fw pi-star-fill',
+        label: 'Customer Management',
+        icon: 'pi pi-users',
         items: [
             {
-                label: 'Form Layout',
-                icon: 'pi pi-fw pi-id-card',
-                to: '/uikit/formlayout'
-            },
-            {
-                label: 'Input',
-                icon: 'pi pi-fw pi-check-square',
-                to: '/uikit/input'
-            },
-            {
-                label: 'Float Label',
-                icon: 'pi pi-fw pi-bookmark',
-                to: '/uikit/floatlabel'
-            },
-            {
-                label: 'Invalid State',
-                icon: 'pi pi-fw pi-exclamation-circle',
-                to: '/uikit/invalidstate'
-            },
-            {
-                label: 'Button',
-                icon: 'pi pi-fw pi-box',
-                to: '/uikit/button'
-            },
-            {
-                label: 'Table',
-                icon: 'pi pi-fw pi-table',
-                to: '/uikit/table'
-            },
-            {
-                label: 'List',
-                icon: 'pi pi-fw pi-list',
-                to: '/uikit/list'
-            },
-            {
-                label: 'Tree',
-                icon: 'pi pi-fw pi-share-alt',
-                to: '/uikit/tree'
-            },
-            {
-                label: 'Panel',
-                icon: 'pi pi-fw pi-tablet',
-                to: '/uikit/panel'
-            },
-            {
-                label: 'Overlay',
-                icon: 'pi pi-fw pi-clone',
-                to: '/uikit/overlay'
-            },
-            {
-                label: 'Media',
-                icon: 'pi pi-fw pi-image',
-                to: '/uikit/media'
-            },
-            {
-                label: 'Menu',
-                icon: 'pi pi-fw pi-bars',
-                to: '/uikit/menu'
-            },
-            {
-                label: 'Message',
-                icon: 'pi pi-fw pi-comment',
-                to: '/uikit/message'
-            },
-            {
-                label: 'File',
-                icon: 'pi pi-fw pi-file',
-                to: '/uikit/file'
-            },
-            {
-                label: 'Chart',
-                icon: 'pi pi-fw pi-chart-bar',
-                to: '/uikit/charts'
-            },
-            {
-                label: 'Misc',
-                icon: 'pi pi-fw pi-circle-off',
-                to: '/uikit/misc'
-            }
-        ]
-    },
-    {
-        label: 'Prime Blocks',
-        icon: 'pi pi-fw pi-prime',
-        items: [
-            {
-                label: 'Free Blocks',
-                icon: 'pi pi-fw pi-eye',
-                to: '/blocks'
-            },
-            {
-                label: 'All Blocks',
-                icon: 'pi pi-fw pi-globe',
-                url: 'https://www.primefaces.org/primeblocks-vue',
-                target: '_blank'
-            }
-        ]
-    },
-    {
-        label: 'Utilities',
-        icon: 'pi pi-fw pi-compass',
-        items: [
-            {
-                label: 'PrimeIcons',
-                icon: 'pi pi-fw pi-prime',
-                to: '/utilities/icons'
-            },
-            {
-                label: 'Colors',
-                icon: 'pi pi-fw pi-palette',
-                to: '/utilities/colors'
-            },
-            {
-                label: 'PrimeFlex',
-                icon: 'pi pi-fw pi-desktop',
-                url: 'https://www.primefaces.org/primeflex/',
-                target: '_blank'
-            },
-            {
-                label: 'Figma',
-                icon: 'pi pi-fw pi-pencil',
-                url: 'https://www.figma.com/file/IeKkGeDwEmJeD6PbgANgSo/Preview-%7C-Freya-2.0.0?node-id=0%3A1&t=xfDlPQhWfSukbuaQ-1',
-                target: '_blank'
-            }
-        ]
-    },
-    {
-        label: 'Pages',
-        icon: 'pi pi-fw pi-briefcase',
-        items: [
-            {
-                label: 'Landing',
-                icon: 'pi pi-fw pi-globe',
-                to: '/landing'
-            },
-            {
-                label: 'Auth',
-                icon: 'pi pi-fw pi-user',
-                items: [
-                    {
-                        label: 'Login',
-                        icon: 'pi pi-fw pi-sign-in',
-                        to: '/auth/login'
-                    },
-
-                    {
-                        label: 'Error',
-                        icon: 'pi pi-fw pi-times-circle',
-                        to: '/auth/error'
-                    },
-
-                    {
-                        label: 'Access Denied',
-                        icon: 'pi pi-fw pi-lock',
-                        to: '/auth/access'
-                    },
-
-                    {
-                        label: 'Register',
-                        icon: 'pi pi-fw pi-user-plus',
-                        to: '/auth/register'
-                    },
-                    {
-                        label: 'Forgot Password',
-                        icon: 'pi pi-fw pi-question',
-                        to: '/auth/forgotpassword'
-                    },
-                    {
-                        label: 'New Password',
-                        icon: 'pi pi-fw pi-cog',
-                        to: '/auth/newpassword'
-                    },
-                    {
-                        label: 'Verification',
-                        icon: 'pi pi-fw pi-envelope',
-                        to: '/auth/verification'
-                    },
-                    {
-                        label: 'Lock Screen',
-                        icon: 'pi pi-fw pi-eye-slash',
-                        to: '/auth/lockscreen'
-                    }
-                ]
-            },
-            {
-                label: 'Crud',
-                icon: 'pi pi-fw pi-pencil',
-                to: '/pages/crud'
-            },
-            {
-                label: 'Timeline',
-                icon: 'pi pi-fw pi-calendar',
-                to: '/pages/timeline'
-            },
-            {
-                label: 'Invoice',
-                icon: 'pi pi-fw pi-dollar',
-                to: '/pages/invoice'
-            },
-
-            {
-                label: 'Help',
-                icon: 'pi pi-fw pi-question-circle',
-                to: '/pages/help'
-            },
-            {
-                label: 'Not Found',
-                icon: 'pi pi-fw pi-exclamation-circle',
-                to: '/pages/notfound'
-            },
-            {
-                label: 'Empty',
-                icon: 'pi pi-fw pi-circle-off',
+                label: 'Customer Profile',
+                icon: 'pi pi-fw pi-users',
                 to: '/pages/empty'
             },
             {
-                label: 'Contact Us',
-                icon: 'pi pi-fw pi-phone',
-                to: '/pages/contact'
-            }
-        ]
-    },
-    {
-        label: 'E-Commerce',
-        icon: 'pi pi-fw pi-wallet',
-        items: [
-            {
-                label: 'Product Overview',
-                icon: 'pi pi-fw pi-image',
-                to: '/ecommerce/product-overview'
+                label: 'Customer Feedback',
+                icon: 'pi pi-fw pi-envelope',
+                to: '/pages/empty'
             },
             {
-                label: 'Product List',
-                icon: 'pi pi-fw pi-list',
-                to: '/ecommerce/product-list'
-            },
-            {
-                label: 'New Product',
-                icon: 'pi pi-fw pi-plus',
-                to: '/ecommerce/new-product'
-            },
-            {
-                label: 'Shopping Cart',
-                icon: 'pi pi-fw pi-shopping-cart',
-                to: '/ecommerce/shopping-cart'
-            },
-            {
-                label: 'Checkout Form',
-                icon: 'pi pi-fw pi-check-square',
-                to: '/ecommerce/checkout-form'
-            },
-            {
-                label: 'Order History',
-                icon: 'pi pi-fw pi-history',
-                to: '/ecommerce/order-history'
-            },
-            {
-                label: 'Order Summary',
-                icon: 'pi pi-fw pi-file',
-                to: '/ecommerce/order-summary'
-            }
-        ]
-    },
-
-    {
-        label: 'User Management',
-        icon: 'pi pi-fw pi-user',
-        items: [
-            {
-                label: 'List',
-                icon: 'pi pi-fw pi-list',
-                to: '/profile/list'
-            },
-            {
-                label: 'Create',
-                icon: 'pi pi-fw pi-plus',
-                to: '/profile/create'
-            }
-        ]
-    },
-    {
-        label: 'Hierarchy',
-        icon: 'pi pi-fw pi-align-left',
-        items: [
-            {
-                label: 'Submenu 1',
-                icon: 'pi pi-fw pi-align-left',
-                items: [
-                    {
-                        label: 'Submenu 1.1',
-                        icon: 'pi pi-fw pi-align-left',
-                        items: [
-                            {
-                                label: 'Submenu 1.1.1',
-                                icon: 'pi pi-fw pi-align-left'
-                            },
-                            {
-                                label: 'Submenu 1.1.2',
-                                icon: 'pi pi-fw pi-align-left'
-                            },
-                            {
-                                label: 'Submenu 1.1.3',
-                                icon: 'pi pi-fw pi-align-left'
-                            }
-                        ]
-                    },
-                    {
-                        label: 'Submenu 1.2',
-                        icon: 'pi pi-fw pi-align-left',
-                        items: [
-                            {
-                                label: 'Submenu 1.2.1',
-                                icon: 'pi pi-fw pi-align-left'
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                label: 'Submenu 2',
-                icon: 'pi pi-fw pi-align-left',
-                items: [
-                    {
-                        label: 'Submenu 2.1',
-                        icon: 'pi pi-fw pi-align-left',
-                        items: [
-                            {
-                                label: 'Submenu 2.1.1',
-                                icon: 'pi pi-fw pi-align-left'
-                            },
-                            {
-                                label: 'Submenu 2.1.2',
-                                icon: 'pi pi-fw pi-align-left'
-                            }
-                        ]
-                    },
-                    {
-                        label: 'Submenu 2.2',
-                        icon: 'pi pi-fw pi-align-left',
-                        items: [
-                            {
-                                label: 'Submenu 2.2.1',
-                                icon: 'pi pi-fw pi-align-left'
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        label: 'Start',
-        icon: 'pi pi-fw pi-download',
-        items: [
-            {
-                label: 'Buy Now',
-                icon: 'pi pi-fw pi-shopping-cart',
-                url: 'https://www.primefaces.org/store'
-            },
-            {
-                label: 'Documentation',
-                icon: 'pi pi-fw pi-info-circle',
-                to: '/documentation'
+                label: 'Loyalty Program',
+                icon: 'pi pi-fw pi-star',
+                to: '/pages/empty'
             }
         ]
     }

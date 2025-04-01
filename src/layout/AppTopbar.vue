@@ -13,7 +13,7 @@ const $primevue = usePrimeVue();
 defineExpose({
     $primevue
 });
-const { isHorizontal, onMenuToggle, showConfigSidebar, showSidebar } = useLayout();
+const { isHorizontal, onMenuToggle, showConfigSidebar } = useLayout();
 
 const outsideClickListener = ref(null);
 const topbarMenuActive = ref(false);
@@ -57,9 +57,6 @@ const onMenuButtonClick = () => {
 const onConfigButtonClick = () => {
     showConfigSidebar();
 };
-const onSidebarButtonClick = () => {
-    showSidebar();
-};
 
 const handleLogout = () => {
     Cookies.remove('token');
@@ -98,7 +95,7 @@ const handleLogout = () => {
                 </li>
                 <li class="topbar-item">
                     <a v-styleclass="{ selector: '@next', enterClass: 'hidden', enterActiveClass: 'px-scalein', leaveToClass: 'hidden', leaveActiveClass: 'px-fadeout', hideOnOutsideClick: 'true' }" v-ripple class="cursor-pointer">
-                        <img style="border: solid 1px; border-color: #6ec180; border-radius: 100%" src="@/assets/alpha_logo.png" alt="Profile" />
+                        <img style="border: solid 1px; padding: 2px; border-color: #6ec180; border-radius: 100%" src="/gibiye-logo-g.png" alt="Profile" />
                     </a>
                     <ul :class="'topbar-menu active-topbar-menu p-4 w-15rem z-5 hidden'">
                         <li role="menuitem" class="m-0 mb-3">
@@ -137,7 +134,7 @@ const handleLogout = () => {
                     <Button type="button" icon="pi pi-cog" class="flex-shrink-0" text severity="secondary" @click="onConfigButtonClick()"></Button>
                 </li>
                 <li>
-                    <Button type="button" icon="pi pi-arrow-left" class="flex-shrink-0" text severity="secondary" @click="onSidebarButtonClick()"></Button>
+                    <Button type="button" icon="pi pi-arrow-left" class="flex-shrink-0" text severity="secondary"></Button>
                 </li>
             </ul>
         </div>

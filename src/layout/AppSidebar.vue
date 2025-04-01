@@ -96,7 +96,13 @@ const anchor = () => {
                         </linearGradient>
                     </defs>
                 </svg> -->
-                <img style="height: 40px; width: auto" src="@/assets/alpha_logo.png" />
+                <div class="flex gap-3">
+                    <img class="mt-1" style="height: 40px; width: auto" src="/gibiye-logo-g.png" />
+                    <div class="flex flex-column gap-0">
+                        <p class="text-xl text-primary font-bold m-0">Gibiye</p>
+                        <p class="text-xl font-bold m-0">Dashboard</p>
+                    </div>
+                </div>
                 <!-- <p>alpha virtuals</p> -->
             </a>
             <button class="layout-sidebar-anchor p-link" type="button" @click="anchor()"></button>

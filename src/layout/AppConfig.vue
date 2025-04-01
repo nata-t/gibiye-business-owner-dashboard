@@ -104,7 +104,6 @@ const onInputStyleChange = (value) => {
 const onRippleChange = (value) => {
     $primevue.config.ripple = value;
 };
-changeTheme('green');
 </script>
 
 <template>
